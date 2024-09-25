@@ -1,11 +1,7 @@
-const {DynamoDBClient, CreateTableCommand} = require("@aws-sdk/client-dynamodb");
+const client = require('./dynamoClient');
+const { CreateTableCommand } = require("@aws-sdk/client-dynamodb");
 
-// New instance of the dynamo db client
-const client = new DynamoDBClient({
-    region: 'us-east-2',
-    // Local DynamoDB
-    endpoint: 'http://localhost:8000' 
-});
+
 
 // Parameters for the thought table
 const params = {
@@ -34,4 +30,7 @@ const run = async () => {
     }
 };
 
+console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+
 run();
+

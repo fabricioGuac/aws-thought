@@ -16,6 +16,7 @@
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.656.0",
     "@aws-sdk/client-s3": "^3.654.0",
+    "@aws-sdk/lib-dynamodb": "^3.658.0",
     "dotenv": "^16.4.5",
     "if-env": "^1.0.4",
     "uuid": "^10.0.0"

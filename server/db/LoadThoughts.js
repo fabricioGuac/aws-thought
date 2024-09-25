@@ -1,12 +1,6 @@
-const { DynamoDBClient, PutItemCommand, } = require("@aws-sdk/client-dynamodb");
+const client = require('./dynamoClient');
+const { PutItemCommand, } = require("@aws-sdk/client-dynamodb");
 const fs = require("fs");
-
-// New instance of the dynamo db client
-const client = new DynamoDBClient({
-    region: 'us-east-2',
-    // Local DynamoDB
-    endpoint: 'http://localhost:8000'
-});
 
 // Reads the user data from the seed folder
 console.log('Importing thoughts into DynamoDB. Please wait.');
@@ -36,5 +30,7 @@ for(let i=0; i<allUsers.length; i++){
         }
 }
 }
+
+console.log("HEEEEEEEEEEEELLLLLLLLLLLPPPPPPPPPPPP");
 
 userSeeder();
