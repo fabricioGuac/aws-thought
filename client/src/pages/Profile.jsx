@@ -12,6 +12,31 @@ export default function Profile (props) {
     thought: '',
   }]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`/api/users/${userParam}`);
+        const dynamoData = await res.json();
+  
+        // Directly map over the data to extract the values from the nested objects
+        const _data = dynamoData.map(item => ({
+          thought: item.thought.S,
+          createdAt: Number(item.createdAt.N), // Convert string to number
+        })).sort((a, b) => b.createdAt - a.createdAt); // Sort by createdAt
+  
+        console.log(_data); // Logging the mapped data
+        setThoughts(_data); // Set the transformed data
+        setIsLoaded(true);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+  
+    fetchData();
+  }, [userParam]);
+  
+  
+
   return (
     <div>
       <div className="flex-row mb-3">

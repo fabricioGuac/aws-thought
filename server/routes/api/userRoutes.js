@@ -75,3 +75,27 @@ router.post("/",  async (req, res) => {
 
 
 module.exports = router;
+
+
+// const express = require('express');
+// const client = require('../../db/dynamoClient');
+// const { ScanCommand } = require('@aws-sdk/client-dynamodb');
+
+// const router = express.Router();
+// const tableName = 'Thoughts';
+
+// router.get('/', async (req, res) => {
+//     const params = {
+//         TableName: tableName,
+//     };
+//     try {
+//         const data = await client.send(new ScanCommand(params));
+//         res.status(200).json(data.Items);
+//     } catch (err) {
+//         console.error("Error retrieving thoughts:", err);
+//         res.status(500).json({ message: "Error retrieving thoughts" });
+//     }
+// });
+
+// module.exports = router;
+
