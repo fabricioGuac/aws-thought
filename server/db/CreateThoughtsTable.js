@@ -30,7 +30,5 @@ const run = async () => {
     }
 };
 
-console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-
 run();
 

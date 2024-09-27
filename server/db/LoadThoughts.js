@@ -5,7 +5,7 @@ const fs = require("fs");
 // Reads the user data from the seed folder
 console.log('Importing thoughts into DynamoDB. Please wait.');
 const allUsers = JSON.parse(
-    fs.readFileSync('./seed/user.json', 'utf8'),
+    fs.readFileSync('server/seed/user.json', 'utf8'),
 );
 
 // Loops over teh user seed data and saves it to the database

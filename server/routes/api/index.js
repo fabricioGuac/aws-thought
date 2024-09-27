@@ -2,11 +2,11 @@
 const router = require('express').Router();
 // Imports the user and thought routes
 const userRoutes = require('./userRoutes');
-// const thoughtRoutes = require('./thoughtRoutes');
+const imageRoutes = require('./imageRoutes');
 
 // Sets the routes for user and thoughts
 router.use('/users', userRoutes);
-// router.use('/thought', thoughtRoutes);
+router.use('/image', imageRoutes);
 
 // Exports the router
 module.exports = router;
