@@ -29,13 +29,14 @@ router.get("/:username", async (req, res) => {
             '#un': 'username',
             '#ca':'createdAt',
             '#th':'thought',
+            "#img": "image",
         },
         //Value used for the query condition
         ExpressionAttributeValues: {
             ':user': {S: req.params.username}
         },
         //Defines the values to be returned
-        ProjectionExpression: '#th, #ca',
+        ProjectionExpression: '#th, #ca, #img, #un',
         //Sorts results in descending order (most recent first)
         ScanIndexForward: false,
     };
@@ -50,7 +51,7 @@ router.get("/:username", async (req, res) => {
 });
 
 router.post("/",  async (req, res) => {
-    const {thought, username} =  req.body;
+    const {thought, username, image} =  req.body;
     const params = {
         // Defines the table that will receive the post
         TableName: tableName,
@@ -59,6 +60,7 @@ router.post("/",  async (req, res) => {
             "username": {S: username},// specify type for String
             "createdAt": {N: String(Date.now())},// DynamoDB requires number types (N) to be passed as strings to ensure precision and meet its expected format.
             "thought": {S: thought},// specify type for String
+            "image": {S: image}, //specify time for String
         }
     };
 

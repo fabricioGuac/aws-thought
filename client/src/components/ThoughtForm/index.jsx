@@ -60,9 +60,9 @@ export default function ThoughtForm() {
         }
 
         const postResponse = await res.json();
-        setFormState({...formState, image: postResponse.Location});
-        console.log('postImage: ', postResponse.Location);
-        return postResponse.Location;
+        setFormState({...formState, image: postResponse.fileUrl});
+        console.log('image: ', postResponse.fileUrl);
+        return postResponse.fileUrl;
       } catch (err) {
         console.log(err);
       }

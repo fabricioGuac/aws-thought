@@ -17,6 +17,7 @@ export default function Home  ()  {
           thought: item.thought.S,
           createdAt: Number(item.createdAt.N), // Convert string to number
           username: item.username.S,
+          image: item.image?.S || null, // Use optional chaining to safely access image
         })).sort((a, b) => b.createdAt - a.createdAt); // Sort by createdAt
   
         setThoughts(_data);
@@ -28,6 +29,7 @@ export default function Home  ()  {
   
     fetchData();
   }, []);
+  
   
 
   return (
