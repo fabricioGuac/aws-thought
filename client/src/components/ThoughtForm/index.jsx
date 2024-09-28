@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
-export default function ThoughtForm  ()  {
+export default function ThoughtForm() {
   const [formState, setFormState] = useState({
     username: "",
     thought: "",
@@ -38,6 +38,38 @@ export default function ThoughtForm  ()  {
     setCharacterCount(0);
   };
 
+  //Declares the reference
+  const fileInput = useRef(null);
+
+  //Function to upload the image
+  const handleImageUpload = (e) => {
+    e.preventDefault();
+    const data = new FormData();
+    data.append('image', fileInput.current.files[0]);
+
+    const postImage = async () => {
+      try {
+        const res = await fetch("/api/image/upload", {
+          mode: 'cors',
+          method:'POST',
+          body: data,
+        });
+
+        if(!res.ok){
+          throw new Error(res.statusText);
+        }
+
+        const postResponse = await res.json();
+        setFormState({...formState, image: postResponse.Location});
+        console.log('postImage: ', postResponse.Location);
+        return postResponse.Location;
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    postImage();
+  }
+
   return (
     <div>
       <p className={`m-0 ${characterCount === 280 ? "text-error" : ""}`}>
@@ -61,6 +93,15 @@ export default function ThoughtForm  ()  {
           className="form-input col-12 "
           onChange={handleChange}
         ></textarea>
+
+        <label className="form-input col-12  p-1">
+          Add an image to your thought:
+          <input type="file" accept="image/*" ref={fileInput} className="form-input p-2" />
+          <button className="btn" onClick={handleImageUpload} type="submit">
+            Upload
+          </button>
+        </label>
+
         <button className="btn col-12 " type="submit">
           Submit
         </button>
