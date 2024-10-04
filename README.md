@@ -3,6 +3,7 @@
 ## Description 
 
 
+This project refactors the Deep Thoughts MERN application to use AWS services for enhanced scalability and performance. DynamoDB replaces MongoDB for database management, providing a serverless, high-performance NoSQL solution. S3 is used for storing and serving static assets, such as images or front-end files, while EC2 hosts the backend and client applications. By leveraging these AWS services, the application gains cloud-native capabilities, improving reliability, reducing operational complexity, and supporting greater scalability for future growth.
 
 ## Instalation
 
@@ -10,17 +11,16 @@ N/A
 
 ## Usage
 
-
-
+To use this app, follow the link to the deployed site, which will direct you to the homepage of Deep Thoughts. There, you'll find a form for creating new posts along with a list of all thoughts shared by users. To create a new post, simply enter your name and your thought, ensuring it stays within the 280-character limit. You also have the option to upload an image to accompany your thought.In the thoughts list, you can view all thoughts attributed to the same name by clicking on it. This action will take you to a profile view, showcasing all thoughts associated with that user.
 
 
 ## Screenshot displaying the deployed app
 
-![Screenshot]()
+![Screenshot](./3.144.176.99_.png)
 
 ## URL to the deployed app
 
-
+http://3.144.176.99/ (I wil take it down because It is only a practice project and I am not paying for the ec2 instance)
 
 ## Credits
 
