@@ -20,7 +20,8 @@ To use this app, follow the link to the deployed site, which will direct you to 
 
 ## URL to the deployed app
 
-http://3.144.176.99/ (I wil take it down because It is only a practice project and I am not paying for the ec2 instance)
+[http://3.144.176.99/](http://3.144.176.99/)  
+This deployment is for demonstration purposes only. The EC2 instance will be decommissioned shortly due to cost constraints.
 
 ## Credits
 
